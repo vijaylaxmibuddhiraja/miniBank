@@ -3,7 +3,7 @@ public abstract class Account {
     protected String accountNumber;
     protected double balance;
 
-    public Account(String accountNumber, double balance) {
+    public Account(String accountNumber) {
         this.accountNumber = accountNumber;
         this.balance = 0.0;
     }
@@ -32,6 +32,6 @@ public abstract class Account {
         }
     }
 
-public abstract String getAccountType();
+public abstract void getAccountType();
 
 }
