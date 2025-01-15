@@ -1,15 +1,15 @@
 public abstract class Account {
-    private static long accCounter = 1000000000;
-    protected String accountNumber;
-    protected double balance;
+   private static long accCounter = 1000000000;
+    private final String accountNumber;
+    private double balance;
 
-    public Account(String accountNumber) {
-        this.accountNumber = accountNumber;
-        this.balance = 0.0;
+    public Account(double balance) {
+        this.accountNumber = String.format("%010d", accCounter++);
+        this.balance = balance;
     }
 
-    public String getAccountNumber() {
-        return String.format("%010d", accCounter++);
+   public String getAccountNumber() {
+        return accountNumber;
     }
 
     public double getBalance() {
@@ -32,6 +32,6 @@ public abstract class Account {
         }
     }
 
-public abstract void getAccountType();
+public abstract void getAccountDetails();
 
 }

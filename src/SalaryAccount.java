@@ -1,10 +1,14 @@
  class SalaryAccount extends Account {
-    public SalaryAccount(String accountNumber) {
-        super(accountNumber);
+    public SalaryAccount(double balance) {
+
+        super(balance);
     }
 
     @Override
-    public void getAccountType() {
-        System.out.println("Salary Account : " + getAccountNumber() + ", Balance:" + getBalance());
+    public void getAccountDetails() {
+        System.out.println("Salary Account Number: " + getAccountNumber());
+        System.out.println("Salary Account Balance: " + getBalance());
     }
-}
+
+
+ }
