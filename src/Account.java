@@ -34,4 +34,9 @@ public abstract class Account {
 
 public abstract void getAccountDetails();
 
+    @Override
+    public String toString() {
+        return "Account Number: " + accountNumber + "\nBalance: Rs" + balance;
+    }
+
 }
