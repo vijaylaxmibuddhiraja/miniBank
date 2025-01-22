@@ -1,10 +1,10 @@
 public abstract class Account {
-   private static long accCounter = 1000000000;
-    private final String accountNumber;
+   //private static long accCounter = 1000000000;
+    private String accountNumber;
     private double balance;
 
-    public Account(double balance) {
-        this.accountNumber = String.format("%010d", accCounter++);
+    public Account(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;     //String.format("%010d", accCounter++);
         this.balance = balance;
     }
 

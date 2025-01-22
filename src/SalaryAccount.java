@@ -1,7 +1,7 @@
  class SalaryAccount extends Account {
-    public SalaryAccount(double balance) {
+    public SalaryAccount(String accountNumber, double balance) {
 
-        super(balance);
+        super(accountNumber,balance);
     }
 
     @Override
