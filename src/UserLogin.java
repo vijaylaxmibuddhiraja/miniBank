@@ -12,7 +12,7 @@ public class UserLogin {
         System.out.println("User logged in successfully.");
     }
 
-  /* public void removeUser(String SocialSecurityNumber) {
+    /*public void removeUser(String SocialSecurityNumber) {
         for (User user : users) {
             if (user.getSocialSecurityNumber().equals(SocialSecurityNumber)) {
                 users.remove(user);
@@ -20,36 +20,34 @@ public class UserLogin {
                 return;
             }
         }
-        System.out.println("User " + SocialSecurityNumber + " not found.");
-    }
-
-    public User searchUser(String SocialSecurityNumber) {
-        for (User user : users) {
-            if (user.getSocialSecurityNumber().equals(SocialSecurityNumber)) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    public boolean checkUser(String SocialSecurityNumber, String securityPin) {
-        User user = searchUser(SocialSecurityNumber);
-        return user != null && user.validateSecurityPin(securityPin);
-    }
-
-    public void updateUserPin(String SocialSecurityNumber, String securityPin) {
-        User user = searchUser(SocialSecurityNumber);
-        if (user != null) {
-            user.updateSecurityPin(securityPin);
-            System.out.println("User's security pin updated successfully.");
-        }else{
-            System.out.println("User not found.");
-        }
+        System.out.println("User not found.");
     }*/
 
     public ArrayList<User> getUsers() {
         return users;
     }
 
+    public User login(String SocialSecurityNumber, String securityPin, int attempts) {
+        if (attempts > 3) {
+            return null;
+        }
+        for (User user : users) {
+            if (user.getSocialSecurityNumber().equals(SocialSecurityNumber) && user.validateSecurityPin(securityPin)) {
+                return user;
+            }
+        }
+        return null;
+    }
 
-}
+    public void showAccounts(User user) {
+        for (Account account : user.getAccounts()) {
+            System.out.println("Account number: " + account.getAccountNumber() + "Balance: " + account.getBalance());
+        }
+    }
+
+
+        }
+
+
+
+
