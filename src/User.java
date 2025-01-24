@@ -10,8 +10,8 @@ public class User {
         this.securityPin = securityPin;
         this.accounts = new ArrayList<>();
 
-        accounts.add(new SalaryAccount(generateAccountNumber(),0.0));
-        accounts.add(new SavingsAccount(generateAccountNumber(), 0.0));
+        accounts.add(new SalaryAccount(generateAccountNumber("SAL"),0.0));
+        accounts.add(new SavingsAccount(generateAccountNumber("SAV"), 0.0));
     }
 
     public String getSocialSecurityNumber() {
@@ -34,8 +34,8 @@ public class User {
     public void setAccounts(ArrayList<Account> accounts) {
         this.accounts = accounts;
     }
-    private String generateAccountNumber() {
-            return "NIT" + (int)(Math.random() * 1000);
+    private String generateAccountNumber(String prefix) {
+            return prefix + (int) (Math.random() * 1000);
 
         }
     }

@@ -3,8 +3,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-       SalaryAccount salAccount = new SalaryAccount("Nit1024",50000);
-       SavingsAccount savAccount = new SavingsAccount("Nit1088",250000);
+       SalaryAccount salAccount = new SalaryAccount("SAL1024",50000);
+       SavingsAccount savAccount = new SavingsAccount("SAV1088",250000);
        User user = new User("201706157654","7659");
 
 

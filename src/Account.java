@@ -1,6 +1,6 @@
 public abstract class Account {
    //private static long accCounter = 1000000000;
-    private String accountNumber;
+    private final String accountNumber;
     private double balance;
 
     public Account(String accountNumber, double balance) {
@@ -36,7 +36,7 @@ public abstract String getAccountDetails();
 
     @Override
     public String toString() {
-        return "Account Number: " + accountNumber + "\nBalance: Rs" + balance;
+        return getAccountDetails() + "Account Number: " + accountNumber + "\nBalance: Rs" + balance;
     }
 
 }
