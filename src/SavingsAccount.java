@@ -5,8 +5,10 @@ class SavingsAccount extends Account {
     }
 
     @Override
-    public void getAccountDetails() {
-        System.out.println("Savings Account Number: " + getAccountNumber());
+    public String getAccountDetails() {
+        return "Savings Account";
+       /* System.out.println("Savings Account Number: " + getAccountNumber());
         System.out.println("Savings Account Balance: " + getBalance());
+        return null;*/
     }
 }

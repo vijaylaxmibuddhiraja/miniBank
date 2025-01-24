@@ -32,7 +32,7 @@ public abstract class Account {
         }
     }
 
-public abstract void getAccountDetails();
+public abstract String getAccountDetails();
 
     @Override
     public String toString() {
