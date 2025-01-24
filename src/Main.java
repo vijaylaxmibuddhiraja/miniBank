@@ -5,16 +5,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-     // SalaryAccount salAccount = new SalaryAccount("SAL1024",50000);
-      // SavingsAccount savAccount = new SavingsAccount("SAV1088",250000);
-       //User user = new User("201706157654","7659");
+        // SalaryAccount salAccount = new SalaryAccount("SAL1024",50000);
+        // SavingsAccount savAccount = new SavingsAccount("SAV1088",250000);
+        //User user = new User("201706157654","7659");
         Scanner scan = new Scanner(System.in);
         UserLogin userLogin = new UserLogin();
 
 
-       userLogin.addUser("200506028769", "3456");
-       userLogin.addUser("195605175678", "8584");
-       userLogin.addUser("198611219876", "9876");
+        userLogin.addUser("200506028769", "3456");
+        userLogin.addUser("195605175678", "8584");
+        userLogin.addUser("198611219876", "9876");
      /*  userLogin.addUser("200112137685", "9286");
         System.out.println("Display added users: ");
         for (User user : userLogin.getUsers()) {
@@ -50,56 +50,56 @@ public class Main {
             System.out.println(account);
         }*/
 
-   int attempts = 0;
 
-   while(true) {
-       System.out.println("\nWelcome to the Mini Bank--");
-       System.out.println("1. Login");
-       System.out.println("2. Exit");
-       System.out.println("3.Enter your choice: ");
+        while (true) {
+            System.out.println("\nWelcome to the Mini Bank--");
+            System.out.println("1. Login");
+            System.out.println("2. Exit");
+            System.out.println("3.Enter your choice: ");
 
-       int choice = scan.nextInt();
-       scan.nextLine();
+            int choice = scan.nextInt();
+            scan.nextLine();
 
-       if(choice == 1) {
-           System.out.print("Enter Social Security Number: ");
-           String ssn = scan.nextLine();
-           System.out.print("Enter PIN: ");
-           String pin = scan.nextLine();
+            if (choice == 1) {
+                int attempts = 0;
 
-           attempts++;
+                while (attempts < 3) {
+                    System.out.print("Enter Social Security Number: ");
+                    String ssn = scan.nextLine();
 
-           User loggedInUser = userLogin.login(ssn, pin, attempts);
+                    System.out.print("Enter PIN: ");
+                    String pin = scan.nextLine();
 
-           if (loggedInUser != null) {
-               System.out.println("Login successful!");
-               System.out.println("Welcome, User: " + loggedInUser.getSocialSecurityNumber());
+                    User loggedInUser = userLogin.login(ssn, pin, attempts);
 
-               // Show user accounts
-               userLogin.showAccounts(loggedInUser);
-           } else {
-               if (attempts >= 3) {
-                   System.out.println("Attempts failed. Try again.");
-                   break;
-               }
-               System.out.println("Invalid Pin, Attempts left: " + (3 - attempts));
-           }
-       } else if (choice == 2) {
-           System.out.println("Continue to the Mini Bank? (Y/N): ");
-           String choice2 = scan.nextLine();
-           if (choice2.equalsIgnoreCase("Y")) {
-               System.out.println("Exit");
-               break;
-           }else {
-               System.out.println("Return to Main Menu");
-           }
-       } else {
-           System.out.println("Invalid choice. Try again.");
-       }
-   }
+                    if (loggedInUser != null) {
+                        System.out.println("Login successful!");
+                        System.out.println("Welcome, User: " + loggedInUser.getSocialSecurityNumber());
 
-        scan.close();
+                        // Show user accounts
+                        userLogin.showAccounts(loggedInUser);
+                        break;
+                    } else {
+                        attempts++;
+                        if (attempts < 3) {
+                            System.out.println("Invalid Pin, Attempts left: " + (3 - attempts));
+                        } else {
+                            System.out.println("Too many attempts, try again");
+                        }
+                    }
+                }
+
+            } else if (choice == 2) {
+                System.out.println("Exit the program");
+                break;
+            } else {
+                System.out.println("Invalid choice");
+            }
+        }
+
+            scan.close();
+        }
+
     }
 
-}
 
