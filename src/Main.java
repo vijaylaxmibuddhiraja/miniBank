@@ -67,6 +67,11 @@ public class Main {
                     System.out.print("Enter Social Security Number: ");
                     String ssn = scan.nextLine();
 
+                    if (!userLogin.isUserExists(ssn)){
+                        System.out.println("Social Security Number does not exist");
+                        continue;
+                    }
+
                     System.out.print("Enter PIN: ");
                     String pin = scan.nextLine();
 

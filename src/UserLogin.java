@@ -9,7 +9,7 @@ public class UserLogin {
 
     public void addUser(String SocialSecurityNumber, String securityPin) {
         users.add(new User(SocialSecurityNumber, securityPin));
-        System.out.println("User logged in successfully.");
+        System.out.println("User added successfully.");
     }
 
     /*public void removeUser(String SocialSecurityNumber) {
@@ -25,6 +25,15 @@ public class UserLogin {
 
     public ArrayList<User> getUsers() {
         return users;
+    }
+
+    public boolean isUserExists(String SocialSecurityNumber) {
+        for (User user : users) {
+            if (user.getSocialSecurityNumber().equals(SocialSecurityNumber)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public User login(String SocialSecurityNumber, String securityPin, int attempts) {
