@@ -81,8 +81,7 @@ public class Main {
                         System.out.println("Login successful!");
                         System.out.println("Welcome, User: " + loggedInUser.getSocialSecurityNumber());
 
-                        // Show user accounts
-                        userLogin.showAccounts(loggedInUser);
+                        userLogin.showAccounts(loggedInUser);  // to show user acc
                         break;
                     } else {
                         attempts++;

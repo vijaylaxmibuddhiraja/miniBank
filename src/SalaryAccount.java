@@ -1,4 +1,5 @@
 class SalaryAccount extends Account {
+
     public SalaryAccount(String accountNumber, double balance) {
 
         super(accountNumber,balance);

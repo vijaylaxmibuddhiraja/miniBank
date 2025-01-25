@@ -21,11 +21,11 @@ public class UserLogin {
             }
         }
         System.out.println("User not found.");
-    }*/
+    }
 
     public ArrayList<User> getUsers() {
         return users;
-    }
+    }*/
 
     public boolean isUserExists(String SocialSecurityNumber) {
         for (User user : users) {

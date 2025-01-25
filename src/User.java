@@ -11,7 +11,7 @@ public class User {
         this.accounts = new ArrayList<>();
 
         accounts.add(new SalaryAccount(generateAccountNumber("SAL"),salaryBalance));
-        accounts.add(new SavingsAccount(generateAccountNumber("SAV"), savingsBalance));
+        accounts.add(new SavingsAccount(generateAccountNumber("SAV"), savingsBalance));   //adding accs with initial balance
     }
 
     public String getSocialSecurityNumber() {
@@ -22,7 +22,7 @@ public class User {
         return this.securityPin.equals(securityPin);
     }
 
-    public void updateSecurityPin(String newPin) {
+    public void updateSecurityPin(String newPin) {   //or reset pin but not yet done
         this.securityPin = newPin;
 
     }
@@ -35,7 +35,7 @@ public class User {
         this.accounts = accounts;
     }
 
-    private String generateAccountNumber(String prefix) {
+    private String generateAccountNumber(String prefix) {    //for unique acc nos
             return prefix + (int) (Math.random() * 1000);
 
         }

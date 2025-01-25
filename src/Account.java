@@ -3,7 +3,7 @@ public abstract class Account {
     private final String accountNumber;
     private double balance;
 
-    public Account(String accountNumber, double balance) {
+    public Account(String accountNumber, double balance) {          //constructor
         this.accountNumber = accountNumber;     //String.format("%010d", accCounter++);
         this.balance = balance;
     }
@@ -34,7 +34,7 @@ public abstract class Account {
 
 public abstract String getAccountDetails();
 
-    @Override
+    @Override           //toString method for account details
     public String toString() {
         return getAccountDetails() + "Account Number: " + accountNumber + "\nBalance: Rs" + balance;
     }
