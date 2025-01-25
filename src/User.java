@@ -5,13 +5,13 @@ public class User {
     private String securityPin;
     private ArrayList<Account> accounts;
 
-    public User(String socialSecurityNumber, String securityPin) {
+    public User(String socialSecurityNumber, String securityPin, double salaryBalance, double savingsBalance) {
         this.socialSecurityNumber = socialSecurityNumber;
         this.securityPin = securityPin;
         this.accounts = new ArrayList<>();
 
-        accounts.add(new SalaryAccount(generateAccountNumber("SAL"),0.0));
-        accounts.add(new SavingsAccount(generateAccountNumber("SAV"), 0.0));
+        accounts.add(new SalaryAccount(generateAccountNumber("SAL"),salaryBalance));
+        accounts.add(new SavingsAccount(generateAccountNumber("SAV"), savingsBalance));
     }
 
     public String getSocialSecurityNumber() {
@@ -34,6 +34,7 @@ public class User {
     public void setAccounts(ArrayList<Account> accounts) {
         this.accounts = accounts;
     }
+
     private String generateAccountNumber(String prefix) {
             return prefix + (int) (Math.random() * 1000);
 

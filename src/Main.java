@@ -5,16 +5,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // SalaryAccount salAccount = new SalaryAccount("SAL1024",50000);
+        SalaryAccount salAccount = new SalaryAccount("SAL1024",50000);
         // SavingsAccount savAccount = new SavingsAccount("SAV1088",250000);
         //User user = new User("201706157654","7659");
         Scanner scan = new Scanner(System.in);
         UserLogin userLogin = new UserLogin();
 
 
-        userLogin.addUser("200506028769", "3456");
-        userLogin.addUser("195605175678", "8584");
-        userLogin.addUser("198611219876", "9876");
+        userLogin.addUser("200506028769", "3456", 20000.0, 500000.0);
+        userLogin.addUser("195605175678", "8584", 35000.0, 275000.0);
+        userLogin.addUser("198611219876", "9876", 89000.0, 1500000.0);
      /*  userLogin.addUser("200112137685", "9286");
         System.out.println("Display added users: ");
         for (User user : userLogin.getUsers()) {
@@ -24,19 +24,19 @@ public class Main {
         /*System.out.println("\nRemove user with SSN: ");
         userLogin.removeUser("");
 
-        System.out.println("Displaying Users after removal: ");
+        System.out.println("Displaying Users after removal: ");*/
         
 
-      /* salAccount.getAccountDetails();
+       salAccount.getAccountDetails();
 
         salAccount.deposit(5000);
         salAccount.getAccountDetails();
 
-        salAccount.withdraw(950);
+       /* salAccount.withdraw(950);
         salAccount.getAccountDetails();
 
 
-        savAccount.getAccountDetails();
+       /* savAccount.getAccountDetails();
 
         savAccount.deposit(20000);
         savAccount.getAccountDetails();

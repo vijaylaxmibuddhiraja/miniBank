@@ -7,8 +7,8 @@ public class UserLogin {
         users = new ArrayList<>();
     }
 
-    public void addUser(String SocialSecurityNumber, String securityPin) {
-        users.add(new User(SocialSecurityNumber, securityPin));
+    public void addUser(String SocialSecurityNumber, String securityPin, double salaryBalance, double savingsBalance) {
+        users.add(new User(SocialSecurityNumber, securityPin, salaryBalance, savingsBalance));
         System.out.println("User added successfully.");
     }
 
