@@ -81,28 +81,30 @@ public class ManageAccount {
 
     private void makeTransfer(User user) {
         System.out.println("Enter account type (salary/savings): ");
-        String mainAccountType = scan.nextLine();
-
-        Account mainAccount = user.accountChoice(mainAccountType);
-        if (mainAccount == null) {
-            System.out.println("Invalid account type");
-            return;
-        }
-
+        String sourceAccountType = scan.nextLine();
+        System.out.println("Enter recipient's Social Security Number: ");
+        String recipientSocialSecurityNumber = scan.nextLine();
+        System.out.println("Enter recipient's account type: ");
+        String recipientAccountType = scan.nextLine();
         System.out.println("Enter amount to be transferred: ");
         double amount = scan.nextDouble();
         scan.nextLine();
 
-        System.out.println("Enter recipient's Social Security Number: ");
-        String recipientSocialSecurityNumber = scan.nextLine();
 
-        System.out.println("Enter recipient's account type: ");
-        String recipientAccountType = scan.nextLine();
+            if (login.transfer(user, sourceAccountType, recipientSocialSecurityNumber, recipientAccountType, amount)) {
+                System.out.println("Transfer successful.");
+                login.showAccounts(user);
+            }  else {
+                  System.out.println("Transfer failed. Please check the account type.");
+               }
 
-        if (login.transfer(user, mainAccountType, recipientSocialSecurityNumber, recipientAccountType, amount)) {
-            System.out.println("Transfer successful.");
-        } else {
-            System.out.println("Transfer failed. Please check the account type.");
+
+               /* Account mainAccount = user.accountChoice(sourceAccountType);
+                if (mainAccount == null) {
+                    System.out.println("Invalid account type");
+                    return;
+                }*/
         }
     }
-}
+
+

@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SalaryAccount salAccount = new SalaryAccount("SAL1024",50000);
+        // SalaryAccount salAccount = new SalaryAccount("SAL1024",50000);
         // SavingsAccount savAccount = new SavingsAccount("SAV1088",250000);
         //User user = new User("201706157654","7659");
         Scanner scan = new Scanner(System.in);
@@ -68,7 +68,7 @@ public class Main {
                     System.out.print("Enter Social Security Number: ");
                     String ssn = scan.nextLine();
 
-                    if (!userLogin.isUserExists(ssn)){
+                    if (!userLogin.isUserExists(ssn)) {
                         System.out.println("Social Security Number does not exist");
                         continue;
                     }
@@ -82,7 +82,8 @@ public class Main {
                         System.out.println("Login successful!");
                         System.out.println("Welcome, User: " + loggedInUser.getSocialSecurityNumber());
 
-                       // userLogin.showAccounts(loggedInUser);  // to show user acc
+                        // userLogin.showAccounts(loggedInUser);  // to show user acc
+
                         manageAccount.manageAccount(loggedInUser);
                         break;
                     } else {
@@ -103,9 +104,12 @@ public class Main {
             }
         }
 
-            scan.close();
-        }
-
+        scan.close();
     }
+}
+
+
+
+
 
 
