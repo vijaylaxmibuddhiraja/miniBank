@@ -8,8 +8,10 @@ public class UserLogin {
     }
 
     public void addUser(String SocialSecurityNumber, String securityPin, double salaryBalance, double savingsBalance) {
-        users.add(new User(SocialSecurityNumber, securityPin, salaryBalance, savingsBalance));
-        System.out.println("User added successfully.");
+       User user = new User(SocialSecurityNumber, securityPin, salaryBalance, savingsBalance);
+       users.add(user);
+       /* users.add(new User(SocialSecurityNumber, securityPin, salaryBalance, savingsBalance));
+        System.out.println("User added successfully.");*/
     }
 
     /*public void removeUser(String SocialSecurityNumber) {
@@ -74,8 +76,8 @@ public class UserLogin {
 
     public void updateBalance(User user, String accountType) {
         Account account = user.accountChoice(accountType);
-        if (account != null) {
-            System.out.println("Current balance for " + accountType + " account: $" + account.getBalance());
+       if (account != null) {
+            System.out.println("Current balance for " + accountType + " account: Rs." + account.getBalance());
         } else {
             System.out.println("Account not found.");
         }

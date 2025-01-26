@@ -10,6 +10,7 @@ public class Main {
         //User user = new User("201706157654","7659");
         Scanner scan = new Scanner(System.in);
         UserLogin userLogin = new UserLogin();
+        ManageAccount manageAccount = new ManageAccount(userLogin);
 
 
         userLogin.addUser("200506028769", "3456", 20000.0, 500000.0);
@@ -27,7 +28,7 @@ public class Main {
         System.out.println("Displaying Users after removal: ");*/
         
 
-       salAccount.getAccountDetails();
+      /* salAccount.getAccountDetails();
 
         salAccount.deposit(5000);
         salAccount.getAccountDetails();
@@ -81,7 +82,8 @@ public class Main {
                         System.out.println("Login successful!");
                         System.out.println("Welcome, User: " + loggedInUser.getSocialSecurityNumber());
 
-                        userLogin.showAccounts(loggedInUser);  // to show user acc
+                       // userLogin.showAccounts(loggedInUser);  // to show user acc
+                        manageAccount.manageAccount(loggedInUser);
                         break;
                     } else {
                         attempts++;
