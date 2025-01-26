@@ -8,8 +8,8 @@ public class UserLogin {
     }
 
     public void addUser(String SocialSecurityNumber, String securityPin, double salaryBalance, double savingsBalance) {
-       User user = new User(SocialSecurityNumber, securityPin, salaryBalance, savingsBalance);
-       users.add(user);
+        User user = new User(SocialSecurityNumber, securityPin, salaryBalance, savingsBalance);
+        users.add(user);
        /* users.add(new User(SocialSecurityNumber, securityPin, salaryBalance, savingsBalance));
         System.out.println("User added successfully.");*/
     }
@@ -76,14 +76,69 @@ public class UserLogin {
 
     public void updateBalance(User user, String accountType) {
         Account account = user.accountChoice(accountType);
-       if (account != null) {
+        if (account != null) {
             System.out.println("Current balance for " + accountType + " account: Rs." + account.getBalance());
         } else {
             System.out.println("Account not found.");
         }
     }
 
+    private User findUserBySSN(String ssn) {
+        for (User user : users) { // Assuming `users` is your list of registered users
+            if (user.getSocialSecurityNumber().equals(ssn)) {
+                return user;
+            }
         }
+        return null;
+    }
+
+
+    public boolean transfer(User sender, String mainAccountType, String recipientSocialSecurityNumber, String recipientAccountType, double amount) {
+        if (sender == null) {
+            System.out.println("Invalid sender.");
+            return false;
+        }
+
+
+        Account senderAccount = sender.accountChoice(mainAccountType);
+        if (senderAccount != null || senderAccount.getBalance() < amount) {
+            System.out.println("Invalid sender or insufficient balance.");
+            return false;
+        }
+
+        if (senderAccount.getBalance() < amount) {
+            System.out.println("Insufficient balance.");
+            return false;
+        }
+
+        User recipient = findUserBySSN(recipientSocialSecurityNumber);
+        if (recipient == null) {
+            System.out.println("Recipient not found.");
+            return false;
+        }
+
+        Account recipientAccount = recipient.accountChoice(recipientAccountType);
+        if (recipientAccount == null) {
+            System.out.println("Recipient account type invalid.");
+            return false;
+        }
+
+        synchronized (this) {
+            try {
+                senderAccount.withdraw(amount);
+                recipientAccount.deposit(amount);
+
+                System.out.println("Successfully transferred Rs. " + amount + "from" + senderAccount + " to " + mainAccountType + "to" + recipientAccount);
+                return true;
+            } catch (Exception e) {
+                System.out.println("Failed to deposit." + e.getMessage());
+                return false;
+            }
+
+        }
+    }
+
+}
 
 
 
