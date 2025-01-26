@@ -54,6 +54,32 @@ public class UserLogin {
         }
     }
 
+    public boolean deposit(User user, String accountType, double amount) {
+        Account account = user.accountChoice(accountType);
+        if (account != null) {
+            account.deposit(amount);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean withdraw(User user, String accountType, double amount) {
+        Account account = user.accountChoice(accountType);
+        if (account != null && account.getBalance() >= amount) {
+            account.withdraw(amount);
+            return true;
+        }
+        return false;
+    }
+
+    public void updateBalance(User user, String accountType) {
+        Account account = user.accountChoice(accountType);
+        if (account != null) {
+            System.out.println("Current balance for " + accountType + " account: $" + account.getBalance());
+        } else {
+            System.out.println("Account not found.");
+        }
+    }
 
         }
 

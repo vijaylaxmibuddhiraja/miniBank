@@ -36,8 +36,19 @@ public class User {
     }
 
     private String generateAccountNumber(String prefix) {    //for unique acc nos
-            return prefix + (int) (Math.random() * 1000);
+        return prefix + (int) (Math.random() * 1000);
 
+    }
+
+    public Account accountChoice(String accountType) {
+        for (Account account : accounts) {
+            if((accountType.equalsIgnoreCase("Salary") && account instanceof SalaryAccount) || (accountType.equalsIgnoreCase("Savings") && account instanceof SavingsAccount)) {
+                return account;
+            }
         }
+        return null;
+    }
+
+
     }
 
